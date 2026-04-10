@@ -22,3 +22,18 @@ __pycache__/
 dist/
 build/
 *.spec
+
+# [NUEVO] Alembic
+# No ignoramos la carpeta alembic/ ni el archivo alembic.ini (son necesarios)
+# Pero podemos ignorar los archivos de cache y logs de migraciones si lo prefieres
+alembic/__pycache__/
+
+# [NUEVO] Archivos temporales de Python
+*.log
+.pytest_cache/
+.coverage
+
+# [NUEVO] Si usas el script migrate.py que crea revisiones automáticas, 
+# a veces es mejor no subir las versiones de desarrollo local:
+ alembic/versions/*.py 
+# (Nota: Solo descomenta la línea anterior si prefieres que cada entorno gestione sus revisiones)
