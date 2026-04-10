@@ -57,18 +57,19 @@ def HomeView(page: ft.Page):
             )
         page.update()
 
+    # ... (al final de HomeView)
     content = ft.Column(
         controls=[
             titulo,
             ft.Divider(height=20, color=ft.Colors.TRANSPARENT),
             ft.Row(
                 controls=[tabla],
-                alignment=ft.MainAxisAlignment.CENTER,
+                alignment=ft.MainAxisAlignment.CENTER, # Centra la tabla en el Row
             )
         ],
         expand=True,
-        horizontal_alignment=ft.CrossAxisAlignment.CENTER # [CORREGIDO]
+        horizontal_alignment=ft.CrossAxisAlignment.CENTER # Centra todo el contenido de la columna
     )
 
-    cargar_datos()
+    cargar_datos() # Esto se ejecuta cada vez que llamamos a HomeView(page)
     return content

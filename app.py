@@ -10,19 +10,18 @@ def main(page: ft.Page):
     page.padding = 20
 
     def cambiar_vista(e):
-        index = e.control.selected_index
-        page.controls.clear()
+        # Obtenemos el índice directamente de la barra, que ya actualizamos antes de llamar aquí
+        index = page.navigation_bar.selected_index
         
-        page.navigation_bar = nav
+        page.controls.clear()
         
         if index == 0:
             page.add(HomeView(page))
         elif index == 1:
-            # [SOLUCIÓN DEFINITIVA] Usamos el objeto Alignment directamente
             page.add(
                 ft.Container(
                     content=FormView(page), 
-                    alignment=ft.Alignment(0, 0), # Esto es el centro exacto (x=0, y=0)
+                    alignment=ft.Alignment(0, 0), 
                     expand=True
                 )
             )
